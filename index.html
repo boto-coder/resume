@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eran Zimbler — CV · 7 presentation options</title>
+<style>
+/* BASE: dark, minimal, reads well on any screen */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;600;900&family=JetBrains+Mono:wght@400;700&display=swap');
+:root{--bg:#0b0d14;--fg:#eae8ed;--accent:#00c2ff;--line:#1b2233;--card:#11141d;--label:#8896aa;--red:#f28b48;}
+*{margin:0;box-sizing:border-box}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;padding:3rem 1.2rem;max-width:940px;margin:0 auto}
+h1{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.05;margin-bottom:.15rem}
+h1 span{font-family:Inter,sans-serif;font-style:normal;font-size:.52rem;text-transform:uppercase;letter-spacing:.14em;color:var(--label);display:block;margin-top:.35rem;font-weight:700}
+.contact{font-size:.9rem;color:var(--label);margin-bottom:2rem}
+.contact a{color:var(--accent);text-decoration:none}
+/* NAV */
+.nav{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:2.5rem}
+.nav a{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.35rem .7rem;color:#c9d0dc;text-decoration:none;transition:all .15s}
+.nav a.active,.nav a:hover{border-color:var(--accent);color:var(--accent);background:#0d1220}
+/* PANELS: each option lives behind the same structure; CSS IDs toggle visibility */
+.panel{display:none;animation:fade .35s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+/* PANEL CONTENT SHARED STYLES (each option can override) */
+.panel h2{font-family:'Instrument Serif';font-weight:700;font-size:1.5rem;margin:1.2rem 0 .9rem;color:#fff;letter-spacing:-.01em}
+.panel .sub{font-size:.88rem;color:var(--label);margin-bottom:1.5rem}
+.card-box{background:linear-gradient(180deg,var(--card),#0a0d14);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.2rem;margin-bottom:1rem;box-shadow:0 6px 30px rgba(0,0,0,.5)}
+.card-box h3{font-family:'Instrument Serif';font-size:1.05rem;margin-bottom:.25rem;color:#fff}
+.card-box .date{font-size:.75rem;color:#7aa3b0;font-family:'JetBrains Mono',monospace;margin-bottom:.6rem}
+.card-box ul{padding-left:1.1rem;font-size:.92rem;color:#ccd4e3}
+.card-box li{margin-bottom:.3rem}
+.expired{color:var(--red);font-weight:700;font-size:.8rem;margin-left:.15rem}
+.chip-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.7rem}
+.chip-row span{font-size:.75rem;background:#0a0e1a;border:1px solid #1b2238;border-radius:999px;padding:.2rem .6rem;color:#8a92aa}
+.preview-label{font-family:'JetBrains Mono';font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#3b4760;margin-top:2.5rem;padding-top:1rem;border-top:1px dashed #1a2240}
+/* SPECIFIC PANEL OVERRIDES */
+/* Option 5 (JSON Resume) uses pre/code styling */
+.pre-code{background:#0b0d16;border:1px solid #161b2e;border-radius:10px;padding:1rem;font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#c5ccd8;overflow:auto;line-height:1.6}
+.pre-code .k{color:#6aa0d6}.pre-code .s{color:#8ad47a}.pre-code .v{color:#d4b86a}
+/* Print option hides dark bg on print */
+@media print{body{background:#fff;color:#111} .nav{display:none} .panel{display:block!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Eran Zimbler <span>CV · 7 PRESENTATION OPTIONS · DEFAULT = JSON RESUME</span></h1>
+  <div class="contact">+44-7747872100 · jobs@zimbler.net · linkedin.com/in/zimbler · <a href="https://github.com/boto-coder/cv">github.com/boto-coder/cv</a> (planned repo)</div>
+</header>
+
+<nav class="nav" aria-label="CV presentation variants">
+  <a class="nav-btn" href="#o1" onclick="show('o1');return false">1 Minimal</a>
+  <a class="nav-btn active" href="#o5" onclick="show('o5');return false">2 JSON Resume (default)</a>
+  <a class="nav-btn" href="#o2" onclick="show('o2');return false">3 Terminal</a>
+  <a class="nav-btn" href="#o3" onclick="show('o3');return false">4 Timeline</a>
+  <a class="nav-btn" href="#o4" onclick="show('o4');return false">5 Viz / Heatmap</a>
+  <a class="nav-btn" href="#o6" onclick="show('o6');return false">6 Print-first</a>
+  <a class="nav-btn" href="#o7" onclick="show('o7');return false">7 Dark</a>
+</nav>
+
+<!-- PANEL 1 — Minimal single-page -->
+<section id="o1" class="panel">
+  <h2>Option 1 — Minimal Single-Page</h2><p class="sub">One scroll · print-friendly · dark theme · mobile-first</p>
+  <p>Profile header, 9-role timeline with key bullets, skills chips, all 9 certs marked <strong style="color:var(--red)">Expired</strong>, education, languages. Clean typography (Inter, 16pt header, 14pt body). Print stylesheet baked in so Ctrl+P renders a clean A4 page.</p>
+  <div class="chip-row"><span>Single scroll</span><span>Print-ready</span><span>Mobile-first</span><span>+44-7747872100</span></div>
+  <div class="preview-label">Built: ~/Projects/cv-previews/option1-minimal.html (4,319 bytes)</div>
+</section>
+
+<!-- PANEL 5 — JSON Resume (DEFAULT / active by CSS + script) -->
+<section id="o5" class="panel active">
+  <h2>Option 2 (default) — JSON Resume · Data Source → Many Themes</h2>
+  <p class="sub">One resume.json feeds web + PDF + 30+ registry themes (jsonresume.org). Keeps data separated from design.</p>
+  <pre class="pre-code"><code><span class="k">{
+  "name"</span>: <span class="s">"Eran Zimbler"</span>,
+  <span class="k">"label"</span>: <span class="s">"Senior DevOps / Cloud Engineer"</span>,
+  <span class="k">"email"</span>: <span class="s">"jobs@zimbler.net"</span>,
+  <span class="k">"phone"</span>: <span class="s">"+44-7747872100"</span>,
+  <span class="k">"work"</span>: [
+    { <span class="k">"name"</span>: <span class="s">"Advance AI"</span>, <span class="k">"position"</span>: <span class="s">"Senior DevOps / Lead"</span>, <span class="k">"start"</span>: <span class="v">"2024-08"</span>, <span class="k">"summary"</span>: <span class="s">"GCP→Azure; audit; structured logging; Superset; CI/CD"</span> },
+    { <span class="k">"name"</span>: <span class="s">"BNY Pershing"</span>, <span class="k">"position"</span>: <span class="s">"Principal Infra / DevOps Lead"</span>, <span class="k">"start"</span>: <span class="v">"2022-09"</span> },
+    { <span class="k">"name"</span>: <span class="s">"Alibaba Damo"</span>, <span class="k">"position"</span>: <span class="s">"Sr DevOps"</span>, <span class="k">"start"</span>: <span class="v">"2021-04"</span> },
+    { <span class="k">"name"</span>: <span class="s">"BNY Mellon"</span>, <span class="k">"start"</span>: <span class="v">"2018-09"</span> },
+    { <span class="k">"name"</span>: <span class="s">"Cloud of Things"</span>, <span class="k">"start"</span>: <span class="v">"2016-06"</span> }
+  ],
+  <span class="k">"skills"</span>: [
+    { <span class="k">"name"</span>: <span class="s">"Python / Go / C#"</span>, <span class="k">"level"</span>: <span class="s">"Production"</span> },
+    { <span class="k">"name"</span>: <span class="s">"Terraform / IaC"</span>, <span class="k">"level"</span>: <span class="s">"Production"</span> },
+    { <span class="k">"name"</span>: <span class="s">"K8s / Docker"</span>, <span class="k">"level"</span>: <span class="s">"Production"</span> },
+    { <span class="k">"name"</span>: <span class="s">"Azure / GCP / Alibaba"</span>, <span class="k">"level"</span>: <span class="s">"Production"</span> },
+    { <span class="k">"name"</span>: <span class="s">"Observability (Grafana / Prometheus)"</span>, <span class="k">"level"</span>: <span class="s">"Production"</span> }
+  ],
+  <span class="k">"certificates"</span>: [
+    { <span class="k">"name"</span>: <span class="s">"Alibaba RDS Ops"</span>, <span class="k">"date"</span>: <span class="v">"2022"</span>, <span class="k">"status"</span>: <span class="s">"Expired"</span> },
+    { <span class="k">"name"</span>: <span class="s">"ACP Cloud Computing"</span>, <span class="k">"date"</span>: <span class="v">"2022"</span>, <span class="k">"status"</span>: <span class="s">"Expired"</span> },
+    { <span class="k">"name"</span>: <span class="s">"ACA System Operator"</span>, <span class="k">"date"</span>: <span class="v">"2022"</span>, <span class="k">"status"</span>: <span class="s">"Expired"</span> }
+  ]
+}</code></pre>
+  <div class="chip-row"><span>One source of truth</span><span>JSON → 30+ themes</span><span>Web + PDF from same file</span><span>Version-controlled data</span></div>
+  <div class="preview-label">Built: ~/Projects/cv-previews/option5-jsonres.html (6,094 bytes) · DEFAULT · source: resume.md</div>
+</section>
+
+<!-- PANEL 2 — Terminal -->
+<section id="o2" class="panel">
+  <h2>Option 3 — Terminal / Shell Style</h2><p class="sub">Page rendered as a terminal session ($ whoami · $ ls skills/ · $ cat work/roles.log). Memorable for DevOps profiles.</p>
+  <p>The terminal aesthetic uses JetBrains Mono for commands + Space Grotesk for headings; commands display the 9 roles as `cat work/roles.log` output; certs listed with <strong style="color:var(--red)">[EXPIRED]</strong> in red; skills shown via `ls skills/`; profile as `whoami`. Keeps the full CV data in readable code-form.</p>
+  <div class="chip-row"><span>Shell aesthetic</span><span>Code-styled</span><span>On-theme for infra roles</span><span>+44-7747872100 shown in header</span></div>
+  <div class="preview-label">Built: ~/Projects/cv-previews/option2-terminal.html (4,174 bytes)</div>
+</section>
+
+<!-- PANEL 3 — Timeline -->
+<section id="o3" class="panel">
+  <h2>Option 4 — Timeline / Vertical Career Line</h2><p class="sub">9 roles as a vertical line with gold nodes. Serif display font (EB Garamond) for headings; Inter for body.</p>
+  <p>Career arc from 2007 (Checkpoint) → 2024 (Advance AI) shown at a glance. Each node shows role + date + bullets. Cert block appears as a bordered callout with all 9 labeled <strong style="color:var(--red)">Expired</strong>. Education + languages at bottom.</p>
+  <div class="chip-row"><span>Vertical timeline</span><span>19-year arc visible</span><span>Gold node design</span></div>
+  <div class="preview-label">Built: ~/Projects/cv-previews/option3-timeline.html (4,827 bytes)</div>
+</section>
+
+<!-- PANEL 4 — Data Viz -->
+<section id="o4" class="panel">
+  <h2>Option 5 — Skills Heatmap / Data Viz</h2><p class="sub">Horizontal progress bars per domain with percentage depth. Purple gradient on dark background.</p>
+  <p>Categories: Languages (Python 92%, Go 82%, C# 70%, Rust 28%), Infrastructure & Cloud (Terraform 90%, K8s 80%, Azure 92%), CI/CD + Observability. Each bar is an honest self-rating (not marketing). Note at bottom explains: levels = production depth, not coursework.</p>
+  <div class="chip-row"><span>Data visualization</span><span>Honest % ratings</span><span>Skill categories</span><span>Rust 28% (learning)</span></div>
+  <div class="preview-label">Built: ~/Projects/cv-previews/option4-viz.html (5,520 bytes)</div>
+</section>
+
+<!-- PANEL 6 — Print -->
+<section id="o6" class="panel">
+  <h2>Option 6 — Print-First (A4 Printable)</h2><p class="sub">Paper-first typography (EB Garamond + Source Sans 3) · 10.5pt · A4 margins · light paper background.</p>
+  <p>Header is serif-italic; role meta is small bold; skills shown as chip row; all 9 cert lines have <strong style="color:var(--red)">[EXPIRED]</strong> in red small-caps. A print-style @page rule hides the dark UI and renders a paper-white layout on Ctrl+P. Designed specifically for HR that still wants a physical/A4 PDF.</p>
+  <div class="chip-row"><span>A4 optimized</span><span>Serif display</span><span>Print @media</span></div>
+  <div class="preview-label">Built: ~/Projects/cv-previews/option6-print.html (5,708 bytes)</div>
+</section>
+
+<!-- PANEL 7 — Dark -->
+<section id="o7" class="panel">
+  <h2>Option 7 — Dark Mode / Terminal Aesthetic</h2><p class="sub">Deep dark (#06070a) · Space Grotesk headings + JetBrains Mono body · blue glow on name.</p>
+  <p>9 roles shown as dark cards with dates; skills chips at bottom; all 9 certs <strong style="color:var(--red)">Expired</strong>; profile + education in card boxes; footer links back to this index. Best for a screen-first CV or for pairing with the terminal-styled option.</p>
+  <div class="chip-row"><span>Deep dark</span><span>Blue glow header</span><span>Card-based layout</span></div>
+  <div class="preview-label">Built: ~/Projects/cv-previews/option7-dark.html (5,873 bytes)</div>
+</section>
+
+<!-- FOOTER CONTEXT -->
+<div style="margin-top:3.5rem;border-top:2px solid var(--line);padding-top:1.2rem;color:#4d5260;font-size:.8rem;line-height:1.65">
+  <strong>How to switch (CSS only):</strong> add <code style="font-family:'JetBrains Mono';font-size:.82em;background:#161a26;padding:.05rem .35rem;border-radius:4px;color:#8aa">.panel.active</code> to the section you want shown; page loads with <strong>JSON Resume (o5)</strong> active by default. The nav links set both the active class and scroll. Zero external files beyond the 7 preview HTMLs under <code>~/Projects/cv-previews/</code> (not in <code>~/</code>, per preference). Source data: <code>~/Projects/AI_Assisted_income/resume.md</code> — fixed (+44, all certs Expired, no PDF edits per instruction). Hosting: <code>cv.zimbler.net</code> → Cloudflare Pages (CNAME + project + push); permissions: Cloudflare dashboard access + Zone:Read / Pages:Edit / DNS:Edit if using token; registrar untouched; free tier unlimited static.
+</div>
+
+<script>
+// LIGHTWEIGHT SWITCHER: change visible panel + nav .active state
+function show(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav a').forEach(a=>a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelector('.nav a[href="#'+id+'"]').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+
+</body></html>
